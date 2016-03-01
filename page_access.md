@@ -12,7 +12,7 @@ access options. No registration or subscription is required.
 <br>
 
 ### Live Online Access
-We provide a MySQL webclient interface [DBLite instance](http://travistorrent.testroots.org/dblite/) that
+We provide a MySQL web client interface [DBLite instance](http://travistorrent.testroots.org/dblite/) that
 has the latest TravisTorrent data loaded into it.
 
 Usage Instructions: After following the above link, please click on `Continue as Guest` to access the web interface.

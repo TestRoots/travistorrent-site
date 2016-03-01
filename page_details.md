@@ -7,7 +7,7 @@ comments: true
 
 Mining Travis CI and linking it to GitHub data poses several difficulties:
 
-- The official Ruby client is ill-suited for batch-aquiring logs (both due to a
+- The official Ruby client is ill-suited for batch-acquiring logs (both due to a
 resource leak and because it does not fetch all logs).
 - Establishing a connection between GitHub and Travis CI build logs is all but
 trivial.

@@ -15,7 +15,7 @@ TravisTorrent provides access to a database of hundreds of thousands of analyzed
 </div>
 
 ### What does TravisTorrent do?
-We access the [Traivs CI](http://www.travisci.com) API and for each build, combine vanilla API data (such as build number and build result), with an analysis of the build log (such as how many tests were run, which test failed, ...) and repository and commit data from [GitHub](http://www.github.com) (such as latency between pushing and building), aquired through GHTorrent.
+We access the [Traivs CI](http://www.travisci.com) API and for each build, combine vanilla API data (such as build number and build result), with an analysis of the build log (such as how many tests were run, which test failed, ...) and repository and commit data from [GitHub](http://www.github.com) (such as latency between pushing and building), acquired through GHTorrent.
 
 ### What is the current status?
 TravisTorrent has reached the state of a minimally working prototype. Currently, we use a static process to update our databases. We plan to automatically synchronize TravisTorrent with Travis, at least for a select number of projects (as analyzing log files is a CPU intensive process, and linking GitHub data requires lots of HTTP requests). We also plan to give our users the opportunity to add projects they are interested in.
