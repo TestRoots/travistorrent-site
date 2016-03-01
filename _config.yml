@@ -61,10 +61,10 @@ url-pretty: "travistorrent.testroots.org"  # eg. "deanattali.com/beautiful-jekyl
 # --- Misc --- #
 
 # Fill in your Disqus shortname (NOT the userid) if you want to support Disqus comments
-#disqus: ""
+disqus: "travistorrent"
 
 # Fill in your Google Analytics ID to track your website using GA
-#google_analytics: ""
+#google_analytics: "UA-49032236-4"
 
 # --- Don't need to touch anything below here (but you can if you want) --- #
 

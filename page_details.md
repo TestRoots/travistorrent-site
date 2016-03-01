@@ -1,7 +1,8 @@
 ---
 layout: page
 title: Technical Details
-subtitle: 
+subtitle:
+comments: true
 ---
 
 Mining Travis CI and linking it to GitHub data poses several difficulties:

@@ -2,6 +2,7 @@
 layout: page
 title: Access TravisTorrent
 subtitle: Free and Open Travis Analytics for Everyone
+comments: true
 ---
 
 As a courtesy to our users, TravisTorrent provides both offline and online
