@@ -30,6 +30,7 @@ navbar-links:
   Home: ""
   Access TravisTorrent: "page_access"
   Technical Details: "page_details"
+  Team: "page_team"
   
 # --- Footer options --- #
 
