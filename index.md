@@ -17,6 +17,19 @@ TravisTorrent provides access to a database of hundreds of thousands of analyzed
 ### What does TravisTorrent do?
 We access the [Traivs CI](http://www.travisci.com) API and for each build, combine vanilla API data (such as build number and build result), with an analysis of the build log (such as how many tests were run, which test failed, ...) and repository and commit data from [GitHub](http://www.github.com) (such as latency between pushing and building), acquired through GHTorrent.
 
+### How to cite?
+If you used (and liked) the TravisTorrent data set, please cite [our openly available preprint](https://peerj.com/preprints/1984.pdf).
+
+Beller M, Gousios G, Zaidman A. (2016) Oops, my tests broke the build: An analysis of Travis CI builds with GitHub. PeerJ Preprints, [https://doi.org/10.7287/peerj.preprints.1984v1](https://doi.org/10.7287/peerj.preprints.1984v1)
+
+	@techreport{beller2016oops,
+	  title={Oops, my tests broke the build: An analysis of Travis CI builds with GitHub},
+	  author={Beller, Moritz and Gousios, Georgios and Zaidman, Andy},
+	  year={2016},
+	  institution={PeerJ Preprints}
+	}
+
+
 ### What is the current status?
 TravisTorrent has reached the state of a minimally working prototype. Currently, we use a static process to update our databases. We plan to automatically synchronize TravisTorrent with Travis, at least for a select number of projects (as analyzing log files is a CPU intensive process, and linking GitHub data requires lots of HTTP requests). We also plan to give our users the opportunity to add projects they are interested in.
 At this point, our log analyses are focused on general Travis data and provide testing specialisations for Ruby and Java, but we plan to extend them.
@@ -26,6 +39,10 @@ We are doing research on software repositories, testing and continuous integrati
 
 ### Why the name?
 TravisTorrent was chosen to resemble the close proximity to the GHTorrent project. According to GHTorrent's website, "the name signifies a torrent of data coming from GitHub." Similarly, TravisTorrent can be seen as the torrent of logs arriving from Travis CI.
+
+### What's the roadmap?
+- Since we first used TravisTorrent only internally, some of the column labels are still hard to understand for outsiders. We will update them in the next dump.
+- In a very small amount of builds, possibly the wrong analyzer was used (for example, for Rails/Rails, we recognized a few Java builds). We are looking into ways to fix this.
 
 ### Can I help?
 Absolutely. Both our TravisPoker and TravisHarvester are [publicly available](https://github.com/Inventitech/travis-analysis) and looking forward to receiving your PRs!
