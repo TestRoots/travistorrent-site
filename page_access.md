@@ -23,10 +23,11 @@ then input sample queries and run them via the blue arrow.  For example,
 average mean of the build time over all projects.
 
 ### Offline Access
-We distribute snapshots of our database as a compressed CSV file (uncompressed 1.8 GB).
+We distribute snapshots of our database as compressed SQL and CSV files (uncompressed 1.8 GB).
 
-Tip: If you use R, you probably want to load it via `fread` from `data.table`.
+Tip: If you use R, you probably want to load the CSV via `fread` from `data.table`.
 
 |Snapshot Revision|Date|Size|
+|[travistorrent-5-3-2016.sql.gz](https://testroots.org/travistorrentdumps/travistorrent-5-3-2016.sql.gz)|1.3.2016|51M|
 |[travistorrent-5-3-2016.csv.tar.gz](https://testroots.org/travistorrentdumps/travistorrent-5-3-2016.csv.tar.gz)|1.3.2016|84M|
 |[travistorrent-28-8-2015.csv.tar.gz](https://testroots.org/travistorrentdumps/travistorrent-28-8-2015.csv.tar.gz)|28.8.2015|65M|
