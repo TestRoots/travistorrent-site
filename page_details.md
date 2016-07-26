@@ -15,6 +15,10 @@ trivial.
 In particular, we have to deal with the issue of build linearization and
 mapping, detailed in the following section.
 
+# Data Summarization
+In the TravisTorrent data set, each data point (row) represents a build job executed on Travis. Every such data point synthesizes information from three different sources: The project's git repository (prefixed `git_`), data from Travis's API and an analysis of the build log (prefixed `tr_`), and data extracted from GitHub through GHTorrent (prefixed `gh_`).
+
+
 # Build Linearization and Mapping
 If we want to answer questions such as ``how much latency does CI
 introduce,'' we need to make a connection between the builds performed
@@ -24,7 +28,7 @@ need to interpret the builds on Travis as a directed graph and
 establish a child-parent relationship based on the Git commits that
 triggered their execution.
 
-![My helpful screenshot](../img/git-travis-matching.png)
+![Commit Build Mapping](../img/git-travis-matching.png)
 
 The above picture exemplifies a typical GitHub project that uses Travis for its
 CI. In the upper part (1), we see the Travis builds (§1-§9), which are either
