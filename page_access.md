@@ -8,7 +8,7 @@ comments: true
 As a courtesy to our users, TravisTorrent provides both offline and online
 access options. No registration or subscription is required. Users are kindly asked to follow a fair-use policy of server resources.
 
-<div class="get-started-wrap"><a class="btn btn-success btn-lg get-started-btn" href="/dblite/">Live Online Access</a> <a class="btn btn-success btn-lg get-started-btn" href="https://testroots.org/travistorrentdumps/travistorrent-5-3-2016.csv.tar.gz">Download CSV Dump</a></div>
+<div class="get-started-wrap"><a class="btn btn-success btn-lg get-started-btn" href="/dblite/">Live Online Access</a> <a class="btn btn-success btn-lg get-started-btn" href="https://testroots.org/travistorrentdumps/travistorrent-5-3-2016.csv.gz">Download CSV Dump</a></div>
 <br>
 
 ### Live Online Access
@@ -29,5 +29,5 @@ Tip: If you use R, you probably want to load the CSV via `fread` from `data.tabl
 
 |Snapshot Revision|Date|Size|
 |[travistorrent-5-3-2016.sql.gz](https://testroots.org/travistorrentdumps/travistorrent-5-3-2016.sql.gz)|1.3.2016|51M|
-|[travistorrent-5-3-2016.csv.tar.gz](https://testroots.org/travistorrentdumps/travistorrent-5-3-2016.csv.tar.gz)|1.3.2016|84M|
+|[travistorrent-5-3-2016.csv.gz](https://testroots.org/travistorrentdumps/travistorrent-5-3-2016.csv.gz)|1.3.2016|79M|
 |[travistorrent-28-8-2015.csv.tar.gz](https://testroots.org/travistorrentdumps/travistorrent-28-8-2015.csv.tar.gz)|28.8.2015|65M|
