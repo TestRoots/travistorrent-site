@@ -29,6 +29,7 @@ avatar: "/img/avatar-icon.png"
 navbar-links:
   Home: ""
   Access TravisTorrent: "page_access"
+  Data Format: "page_dataformat"
   Technical Details: "page_details"
   Team: "page_team"
   
