@@ -160,7 +160,7 @@ the build result §6.
 by its build number would fail: It would return §4 as its predecessor, when it
 really is §2 (7).
 
-6. Finally, when merging branches or pull requests (8), a similar situation to
-3. occurs, in which one merge commit #H naturally has two predecessors.
+6. Finally, when merging branches or pull requests (8), a similar situation to 
+step 3. occurs, in which one merge commit #H naturally has two predecessors.
 
 
