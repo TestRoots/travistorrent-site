@@ -5,18 +5,112 @@ subtitle:
 comments: true
 ---
 
-Mining Travis CI and linking it to GitHub data poses several difficulties:
+On this page, we describe the challenges and technicalities of mining Travis CI and linking it to GitHub data poses several difficulties:
 
 - The official Ruby client is ill-suited for batch-acquiring logs (both due to a
 resource leak and because it does not fetch all logs).
 - Establishing a connection between GitHub and Travis CI build logs is all but
 trivial.
 
-In particular, we have to deal with the issue of build linearization and
-mapping, detailed in the following section.
+In particular, we have to deal with the issues of efficiently collecting data, build linearization and
+mapping, detailed in the following sections.
 
-# Data Summarization
-In the TravisTorrent data set, each data point (row) represents a build job executed on Travis. Every such data point synthesizes information from three different sources: The project's git repository (prefixed `git_`), data from Travis's API and an analysis of the build log (prefixed `tr_`), and data extracted from GitHub through GHTorrent (prefixed `gh_`).
+# Data Collection
+
+*TravisPoker.*  To find out which and how many projects on
+GitHub use Travis, we implemented TravisPoker. This fast and
+lightweight application takes a GitHub project name as input (for
+example, `rails/rails`), and finds out if and how many Travis
+builds were executed for this project.
+
+*TravisHarvester.*  We implemented TravisHarvester to aggregate
+detailed information about a project's Travis build history. It takes as input
+a GitHub project name and gathers general statistics on each build in the
+project's history in a CSV file. Associated with each build entry in the CSV
+are the SHA1 hash of the Git commit, the branch and (if applicable)
+pull request on which the build was executed, the overall build status, the
+duration and starting time and the sub jobs that Travis executed for the
+different specified environments (at least one job, possibly many for each
+build). TravisHarvester downloads the build logs for each build for
+all jobs and stores them alongside the CSV file.
+
+While both TravisPoker and TravisHarvester utilize
+Travis CI's Ruby client for querying the
+[API](https://github.com/travis-ci/travis.rb), we cannot use its
+job log retrieval function (Job:log) due to a memory
+leak ([reported](https://github.com/travis-ci/travis.rb/issues/310)) and
+because it does not retrieve all build logs.  We circumvented these problems by
+also querying an [Amazon Cloud](http://s3.amazonaws.com/archive.travis-ci.org) server we discovered that archives
+build logs.
+
+To speed up the process of retrieving thousands of log files for each project,
+we parallelize our starter scripts for TravisHarvester with [GNU Parallel](https://www.gnu.org/software/parallel/).
+
+
+# Analysis of Build Logs
+
+BuildAnalyzer is a framework that supports the general-purpose analysis of Travis build
+logs and provides dedicated Java and Ruby build analyzers that parse build logs in both languages
+and search for output traces of common testing frameworks.
+
+The language-agnostic BuildAnalyzer reads-in a build log, splits it into the different build
+phases, and analyzes the build status and runtime of each phase. The fold for the `script`
+phase contains the actual build and continuous testing results. The BuildAnalyzer dispatches the
+automatically determined sub-BuildAnalyzer for further examination of the build phase.
+
+For Java, we support the three popular build tools Maven, Gradle, and Ant. In Java, it is
+standard procedure to use JUnit as the test runner, even if the tests
+themselves employ other testing frameworks, such as PowerMock or
+Mockito. Moreover, we also support TestNG, the second most
+popular testing framework for Java. Running the tests of an otherwise unchanged
+project through Maven, Gradle and Ant leads to
+different, incompatible build logs, with Maven being the most verbose
+and Gradle the least.  Hence, we need three different parsers to
+support the large ecosystem of popular Java build tools. As a consequence, the
+amount of information we can extract from a build log varies per build
+technology used. Moreover, some build tools give users the option to modify
+their console output, albeit rarely used in practice.
+
+```
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running nl.tudelft.watchdog.ClientVersionCheckerTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.04 sec
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] All tests passed!
+```
+
+The listing above shows an excerpt of one test execution from the
+`TestRoots/WatchDog` project. In the output, we can see the executed
+test classes (line 4), and how many tests passed, failed, errored and were
+skipped. We also get the test execution time (line 5). Moreover, Maven prints
+an overall result summary (line 9) that the BuildAnalyzer uses to triage its
+prior findings. Line 11 shows the overall test execution result. Our
+BuildAnalyzer gathers all this information and creates, for each invoked
+project, a CSV table with all build and test results for each job built. We
+then aggregate this information with information from the build status analyzer
+step by joining their output. TravisTorrent provides easy access to this data.
+
+The listing below shows the equivalent Gradle output. The silent
+Gradle becomes more verbose when a test fails, providing us with
+similar information to our first listing.
+
+```
+:test
+```
+
+By contrast, in Ruby, the test framework is responsible for the console output:
+it is no different to invoke RSpec through Rake than through
+Bundler, the two predominant Ruby build (support)
+tools. For Ruby, we support the prevalent
+Test::Unit and all its off springs, like MiniTest. Moreover,
+we capture behavior driven tests via RSpec and Cucumber
+support.
 
 
 # Build Linearization and Mapping
@@ -68,3 +162,5 @@ really is §2 (7).
 
 6. Finally, when merging branches or pull requests (8), a similar situation to
 3. occurs, in which one merge commit #H naturally has two predecessors.
+
+
