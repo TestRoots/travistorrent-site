@@ -16,6 +16,7 @@ TravisTorrent provides access to a database of hundreds of thousands of analyzed
 
 ### What does TravisTorrent do?
 We access the [Travis CI](http://www.travis-ci.com) API and for each build, combine vanilla API data (such as build number and build result), with an analysis of the build log (such as how many tests were run, which test failed, ...) and repository and commit data from [GitHub](http://www.github.com) (such as latency between pushing and building), acquired through GHTorrent.
+<a name="cite"></a>
 
 ### How to cite?
 If you used (and liked) the TravisTorrent data set, please cite [our openly available preprint](https://peerj.com/preprints/1984.pdf).
