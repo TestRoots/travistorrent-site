@@ -20,17 +20,18 @@ We access the [Travis CI](http://www.travis-ci.com) API and for each build, comb
 <a name="cite"></a>
 
 ### How to cite?
-If you used (and liked) the TravisTorrent data set, please cite [our openly available preprint](https://peerj.com/preprints/1984.pdf).
+If you used (and liked) the TravisTorrent data set, please cite [our openly available preprint]().
 
-Beller M, Gousios G, Zaidman A. (2016) Oops, my tests broke the build: An analysis of Travis CI builds with GitHub. PeerJ Preprints, [https://doi.org/10.7287/peerj.preprints.1984v1](https://doi.org/10.7287/peerj.preprints.1984v1)
+Beller M, Gousios G, Zaidman A. (2017) TravisTorrent: Synthesizing Travis CI and GitHub for Full-Stack Research on Continuous Integration [http://www.st.ewi.tudelft.nl/~mbeller/publications/2016_beller_gousios_zaidman_travistorrent_synthesizing_travis_ci_and_github_for_full-stack_research_on_continuous_integration.pdf](http://www.st.ewi.tudelft.nl/~mbeller/publications/2016_beller_gousios_zaidman_travistorrent_synthesizing_travis_ci_and_github_for_full-stack_research_on_continuous_integration.pdf)
 
-	@techreport{beller2016oops,
-	  title={Oops, my tests broke the build: An analysis of Travis CI builds with GitHub},
-	  author={Beller, Moritz and Gousios, Georgios and Zaidman, Andy},
-	  year={2016},
-	  institution={PeerJ Preprints}
-	}
-
+       @techreport{msr17challenge,
+	 title={TravisTorrent: Synthesizing Travis CI and GitHub for Full-Stack Research on Continuous Integration},
+	 author={Beller, Moritz and Gousios, Georgios and Zaidman, Andy},
+	 year={2017},
+	 booktitle={Proceedings of the 14th working conference on mining software repositories},
+	 preprint={http://www.st.ewi.tudelft.nl/~mbeller/publications/2017_beller_gousios_zaidman_travistorrent_synthesizing_travis_ci_and_github_for_full-stack_research_on_continuous_integration.pdf}
+    	}
+	
 
 ### What is the current status?
 TravisTorrent has reached the state of a minimally working prototype. Currently, we use a static process to update our databases. We plan to automatically synchronize TravisTorrent with Travis, at least for a select number of projects (as analyzing log files is a CPU intensive process, and linking GitHub data requires lots of HTTP requests). We also plan to give our users the opportunity to add projects they are interested in.
