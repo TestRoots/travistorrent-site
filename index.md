@@ -20,17 +20,17 @@ We access the [Travis CI](http://www.travis-ci.com) API and for each build, comb
 <a name="cite"></a>
 
 ### How to cite?
-If you used (and liked) the TravisTorrent data set, please cite [our openly available preprint]().
+If you used (and liked) the TravisTorrent data set, please cite [our openly available preprint](http://www.st.ewi.tudelft.nl/~mbeller/publications/2016_beller_gousios_zaidman_travistorrent_synthesizing_travis_ci_and_github_for_full-stack_research_on_continuous_integration.pdf).
 
-Beller M, Gousios G, Zaidman A. (2017) TravisTorrent: Synthesizing Travis CI and GitHub for Full-Stack Research on Continuous Integration [http://www.st.ewi.tudelft.nl/~mbeller/publications/2016_beller_gousios_zaidman_travistorrent_synthesizing_travis_ci_and_github_for_full-stack_research_on_continuous_integration.pdf](http://www.st.ewi.tudelft.nl/~mbeller/publications/2016_beller_gousios_zaidman_travistorrent_synthesizing_travis_ci_and_github_for_full-stack_research_on_continuous_integration.pdf)
+Beller M, Gousios G, Zaidman A. (2017) TravisTorrent: Synthesizing Travis CI and GitHub for Full-Stack Research on Continuous Integration
 
-       @techreport{msr17challenge,
-	 title={TravisTorrent: Synthesizing Travis CI and GitHub for Full-Stack Research on Continuous Integration},
-	 author={Beller, Moritz and Gousios, Georgios and Zaidman, Andy},
-	 year={2017},
-	 booktitle={Proceedings of the 14th working conference on mining software repositories},
-	 preprint={http://www.st.ewi.tudelft.nl/~mbeller/publications/2017_beller_gousios_zaidman_travistorrent_synthesizing_travis_ci_and_github_for_full-stack_research_on_continuous_integration.pdf}
-    	}
+    @inproceedings{msr17challenge,
+     title={TravisTorrent: Synthesizing Travis CI and GitHub for Full-Stack Research on Continuous Integration},
+     author={Beller, Moritz and Gousios, Georgios and Zaidman, Andy},
+     booktitle={Proceedings of the 14th working conference on mining software repositories},
+     preprint={http://www.st.ewi.tudelft.nl/~mbeller/publications/2017_beller_gousios_zaidman_travistorrent_synthesizing_travis_ci_and_github_for_full-stack_research_on_continuous_integration.pdf},
+     year={2017}
+    }
 	
 
 ### What is the current status?
