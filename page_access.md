@@ -19,13 +19,13 @@ Usage Instructions: After following the above link, please click on `Continue
 as Guest` to access the web interface.  Select database `travist`, under which
 you will find the TravisTorrent timestamped tables. Select one of them. You can
 then input sample queries and run them via the blue arrow.  For example,
-``SELECT AVG(purebuildduration) FROM travistorrent_7_9_2016`` computes the
+``SELECT AVG(tr_purebuildduration) FROM travistorrent_7_9_2016`` computes the
 average mean of the build time over all projects.
 
 ### Offline Access
 We distribute snapshots of our database as compressed SQL and CSV files (uncompressed 1.8 GB). The SQL is generated from automatically reading in the CSV.
 
-Tips: You can import the SQL simply via `mysql -u root -p your_database < travistorrent_7_9_2016.sql`. If you use R and CSV, you probably want to load the CSV via `fread` from `data.table`.
+Tip: If you use R and CSV, you probably want to load the CSV via `fread` from `data.table`.
 
 |Snapshot Revision|Date|Size|
 |[travistorrent_7_9_2016.sql.gz](/dumps/travistorrent_7_9_2016.sql.gz)|7.9.2016|78M
