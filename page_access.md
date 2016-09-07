@@ -25,7 +25,7 @@ average mean of the build time over all projects.
 ### Offline Access
 We distribute snapshots of our database as compressed SQL and CSV files (uncompressed 1.8 GB). The SQL is generated from automatically reading in the CSV.
 
-Tip: If you use R, you probably want to load the CSV via `fread` from `data.table`.
+Tips: You can import the SQL simply via `mysql -u root -p your_database < travistorrent_7_9_2016.sql`. If you use R and CSV, you probably want to load the CSV via `fread` from `data.table`.
 
 |Snapshot Revision|Date|Size|
 |[travistorrent_7_9_2016.sql.gz](/dumps/travistorrent_7_9_2016.sql.gz)|7.9.2016|78M
