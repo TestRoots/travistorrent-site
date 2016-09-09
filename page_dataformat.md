@@ -25,7 +25,7 @@ In the TravisTorrent data set, each data point (row) represents a build job exec
 | "gh_lang" | Dominant repository language, according to GitHub | String |
 | "git_branch" | Branch git_commit was committed on | String |
 | "gh_first_commit_created_at" | Date of first commit for the entire repository ('project start') | ISO Date |
-| "gh_team_size" | Size of the team contributing to this project | Integer |
+| "gh_team_size" | Number of developers that committed directly or merged PRs from the moment the build was triggered and 3 months back. | Integer |
 | "git_commits" | List of directly preceeding commits that do not have build (e.g., transferred in one push, build cancelled, ...) this build comprises | String. List of commits, separated by Hashtag `#` |
 | "git_num_commits" | The number of commits in git_commits, to ease efficient splitting | String.  |
 | "gh_num_issue_comments" | If git_commit is linked to an issue on GitHub, the number of comments on that issue | Integer |
