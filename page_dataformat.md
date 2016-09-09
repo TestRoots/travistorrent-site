@@ -18,7 +18,7 @@ In the TravisTorrent data set, each data point (row) represents a build job exec
 * All line measurements are excluding comments.
 * For Ruby, we support test file identification for RUnit, RSpec and Minitest standard paths (we explicitely ignore Cucumber features);
 we also support test case filtering for RUnit, Shoulda and RSpec tests. More details can be found in [this file](https://github.com/TestRoots/travistorrent-tools/blob/master/bin/ruby.rb).
-* For Java, we support test file identification for standard Maven and JUnit conventions.
+* For Java, we support test file identification for standard Maven and JUnit conventions. More details can be found in [this file](https://github.com/TestRoots/travistorrent-tools/blob/master/bin/java.rb).
 * All variables that have a time dimension (e.g. team_size) are calculated within the timeframe from the moment the build was triggered and 3 months back
 
 # Data Description
