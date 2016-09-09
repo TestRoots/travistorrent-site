@@ -13,6 +13,14 @@ At this point, from the 17,313,330 active OSS repositories on GitHub in August, 
 # General Data Structure
 In the TravisTorrent data set, each data point (row) represents a build job executed on Travis. Every such data point synthesizes information from three different sources: The project's git repository (prefixed `git_`), data from Travis's API and an analysis of the build log (prefixed `tr_`), and data extracted from GitHub through GHTorrent (prefixed `gh_`).
 
+# Data construction defaults
+
+* All line measurements are excluding comments.
+* For Ruby, we support test file identification for RUnit, RSpec and Minitest standard paths (we explicitely ignore Cucumber features);
+we also support test case filtering for RUnit, Shoulda and RSpec tests. More details can be found in [this file](https://github.com/TestRoots/travistorrent-tools/blob/master/bin/ruby.rb).
+* For Java, we support test file identification for standard Maven and JUnit conventions.
+* All variables that have a time dimension (e.g. team_size) are calculated within the timeframe from the moment the build was triggered and 3 months back
+
 # Data Description
 
 |Column |Description | Unit |
