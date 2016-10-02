@@ -28,8 +28,8 @@ We distribute snapshots of our database as compressed SQL and CSV files (uncompr
 Tip: If you use R and CSV, you probably want to load the CSV via `fread` from `data.table`.
 
 |Snapshot Revision|Date|Size|
-|[travistorrent_30_9_2016.sql.gz](/dumps/travistorrent_30_9_2016.sql.gz)|7.9.2016|78M|
-|[travistorrent_30_9_2016.csv.gz](/dumps/travistorrent_30_9_2016.csv.gz)|7.9.2016|79M|
+|[travistorrent_30_9_2016.sql.gz](/dumps/travistorrent_30_9_2016.sql.gz)|30.9.2016|78M|
+|[travistorrent_30_9_2016.csv.gz](/dumps/travistorrent_30_9_2016.csv.gz)|30.9.2016|79M|
 |archived: [travistorrent_7_9_2016.sql.gz](/dumps/travistorrent_7_9_2016.sql.gz)|7.9.2016|78M|
 |archived: [travistorrent_7_9_2016.csv.gz](/dumps/travistorrent_7_9_2016.csv.gz)|7.9.2016|79M|
 |archived: [travistorrent_5_3_2016.sql.gz](/dumps/travistorrent_5_3_2016.sql.gz)|5.3.2016|51M|
