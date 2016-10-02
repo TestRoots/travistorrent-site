@@ -8,7 +8,7 @@ comments: true
 As a courtesy to our users, TravisTorrent provides both offline and online
 access options. No registration or subscription is required. Users are kindly asked to follow a fair-use policy of server resources.
 
-<div class="get-started-wrap"><a class="btn btn-success btn-lg get-started-btn" href="/dblite/">Live Online Access</a> <a class="btn btn-success btn-lg get-started-btn" href="/dumps/travistorrent_7_9_2016.sql.gz">Download SQL Dump</a></div>
+<div class="get-started-wrap"><a class="btn btn-success btn-lg get-started-btn" href="/dblite/">Live Online Access</a> <a class="btn btn-success btn-lg get-started-btn" href="/dumps/travistorrent_30_9_2016.sql.gz">Download SQL Dump</a></div>
 <br>
 
 ### Live Online Access
@@ -19,7 +19,7 @@ Usage Instructions: After following the above link, please click on `Continue
 as Guest` to access the web interface.  Select database `travist`, under which
 you will find the TravisTorrent timestamped tables. Select one of them. You can
 then input sample queries and run them via the blue arrow.  For example,
-``SELECT AVG(tr_purebuildduration) FROM travistorrent_7_9_2016`` computes the
+``SELECT AVG(tr_purebuildduration) FROM travistorrent_30_9_2016`` computes the
 average mean of the build time over all projects.
 
 ### Offline Access
@@ -28,8 +28,10 @@ We distribute snapshots of our database as compressed SQL and CSV files (uncompr
 Tip: If you use R and CSV, you probably want to load the CSV via `fread` from `data.table`.
 
 |Snapshot Revision|Date|Size|
-|[travistorrent_7_9_2016.sql.gz](/dumps/travistorrent_7_9_2016.sql.gz)|7.9.2016|78M
-|[travistorrent_7_9_2016.csv.gz](/dumps/travistorrent_7_9_2016.csv.gz)|7.9.2016|79M
+|[travistorrent_30_9_2016.sql.gz](/dumps/travistorrent_30_9_2016.sql.gz)|7.9.2016|78M|
+|[travistorrent_30_9_2016.csv.gz](/dumps/travistorrent_30_9_2016.csv.gz)|7.9.2016|79M|
+|archived: [travistorrent_7_9_2016.sql.gz](/dumps/travistorrent_7_9_2016.sql.gz)|7.9.2016|78M|
+|archived: [travistorrent_7_9_2016.csv.gz](/dumps/travistorrent_7_9_2016.csv.gz)|7.9.2016|79M|
 |archived: [travistorrent_5_3_2016.sql.gz](/dumps/travistorrent_5_3_2016.sql.gz)|5.3.2016|51M|
 |archived: [travistorrent_5_3_2016.csv.gz](/dumps/travistorrent_5_3_2016.csv.gz)|5.3.2016|79M|
 |archived: [travistorrent_28_8_2015.csv.gz](/dumps/travistorrent_28_8_2015.csv.gz)|28.8.2015|65M|
