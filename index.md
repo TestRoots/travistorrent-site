@@ -44,8 +44,8 @@ We are doing research on software repositories, testing and continuous integrati
 TravisTorrent was chosen to resemble the close proximity to the GHTorrent project. According to GHTorrent's website, "the name signifies a torrent of data coming from GitHub." Similarly, TravisTorrent can be seen as the torrent of logs arriving from Travis CI.
 
 ### What's the roadmap?
-- Since we first used TravisTorrent only internally, some of the column labels are still hard to understand for outsiders. We will update them in the next dump.
-- In a very small amount of builds, possibly the wrong analyzer was used (for example, for Rails/Rails, we recognized a few Java builds). We are looking into ways to fix this.
+- We used to abort and skip builds as soon as we detect something fishy is going on (for example, a [build log that was later deleted](https://travistorrent.testroots.org/buildlogs/rubyjava/connectbot%40connectbot/15_918d96e0bb7699d83b796214b7fea9208e9e8695_55511170.log)). We are investigating ways to continue the buildlog analysis.
+- In a very small amount of builds, possibly the wrong buildlog analyzer was used, affecting columns starting with `tr_` (for example, for `Rails/Rails`, we recognized a few Java builds, even though the project couldn't be more Ruby). Buildlog analysis is somewhat of a black art. Help us with your ideas by contributing!
 
 ### Can I help?
 Absolutely. Both our TravisPoker and TravisHarvester are [publicly available](https://github.com/Inventitech/travis-analysis) and looking forward to receiving your PRs!
