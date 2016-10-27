@@ -8,7 +8,7 @@ comments: true
 As a courtesy to our users, TravisTorrent provides both offline and online
 access options. No registration or subscription is required. Users are kindly asked to follow a fair-use policy of server resources.
 
-<div class="get-started-wrap"><a class="btn btn-success btn-lg get-started-btn" href="/dblite/">Live Online Access</a> <a class="btn btn-success btn-lg get-started-btn" href="/dumps/travistorrent_30_9_2016.sql.gz">Download SQL Dump</a></div>
+<div class="get-started-wrap"><a class="btn btn-success btn-lg get-started-btn" href="/dblite/">Live Online Access</a> <a class="btn btn-success btn-lg get-started-btn" href="/dumps/travistorrent_27_10_2016.sql.gz">Download SQL Dump</a></div>
 <br>
 
 ### Live Online Access
@@ -28,6 +28,8 @@ We distribute snapshots of our database as compressed SQL and CSV files (uncompr
 Tip: If you use R and CSV, you probably want to load the CSV via `fread` from `data.table`.
 
 |Snapshot Revision|Date|Size|
+|[travistorrent_27_10_2016.sql.gz](/dumps/travistorrent_27_10_2016.sql.gz)|27.10.2016|78M|
+|[travistorrent_27_10_2016.csv.gz](/dumps/travistorrent_27_10_2016.csv.gz)|27.10.2016|78M|
 |[travistorrent_30_9_2016.sql.gz](/dumps/travistorrent_30_9_2016.sql.gz)|30.9.2016|78M|
 |[travistorrent_30_9_2016.csv.gz](/dumps/travistorrent_30_9_2016.csv.gz) <br><sub>Includes changes to data types, e.g. TRUE instead of "true"</sub>|30.9.2016|79M|
 |archived: [travistorrent_7_9_2016.sql.gz](/dumps/travistorrent_7_9_2016.sql.gz)|7.9.2016|78M|
