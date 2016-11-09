@@ -49,7 +49,7 @@ we also support test case filtering for RUnit, Shoulda and RSpec tests. More det
 | "gh_src_files" | Number of src files changed by the commits that where built | Integer |
 | "gh_doc_files" | Number of documentation files changed by the commits that where built | Integer |
 | "gh_other_files" | Number of files which are neither production code nor documentation that changed by the commits that where built | Integer |
-| "gh_commits_on_files_touched" | Unique commits on the files included in the build from the moment the build was triggered and 3 months back  | Integer |
+| "gh_num_commits_on_files_touched" | Number of unique commits on the files touched in the commits (`git_all_built_commits`) that triggered the build from the moment the build was triggered and 3 months back. It is a metric of how active the part of the project is that these commits touched. | Integer |
 | "gh_sloc" | Number of executable production source lines of code, in the entire repository | Integer |
 | "gh_test_lines_per_kloc" | Test density. Number of lines in test cases per 1000 gh_sloc | Double |
 | "gh_test_cases_per_kloc" | Test density. Number of test cases per 1000 gh_sloc | Double |
