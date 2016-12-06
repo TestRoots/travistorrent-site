@@ -23,62 +23,66 @@ we also support test case filtering for RUnit, Shoulda and RSpec tests. More det
 
 # Data Description
 
-|Column |Description | Unit |
-| ----  | ---------- | ---- |
-| "row" | Unique identifier for a build job in TravisTorrent | Integer |
-| "git_commit" | SHA1 Hash of the commit which triggered this build (should be unique world-wide) | String |
-| "gh_project_name" | Project name on GitHub (in format user/repository) | String |
-| "gh_is_pr" | Whether this build was triggered as part of a pull request on GitHub | Boolean |
-| "git_merged_with" | If this commit sits on a Pull Request (gh_is_pr true), the SHA1 of the commit that merged said pull request | String |
-| "gh_lang" | Dominant repository language, according to GitHub | String |
-| "git_branch" | Branch git_commit was committed on | String |
-| "gh_first_commit_created_at" | Timestamp of first commit in the push that triggered the build | ISO Date |
-| "gh_team_size" | Number of developers that committed directly or merged PRs from the moment the build was triggered and 3 months back. | Integer |
-| "git_commits" | All commits included in the push that triggered the build, minus the built commit | String. List of commits, separated by Hashtag `#` |
-| "git_num_commits" | The number of commits in git_commits, to ease efficient splitting | String.  |
-| "gh_num_issue_comments" | If git_commit is linked to a PR on GitHub, the number of discussion comments on that PR | Integer |
-| "gh_num_commit_comments" | The number of comments on git_commits on GitHub | Integer |
-| "gh_num_pr_comments" | If gh_is_pr is true, the number of comments (code review) on this pull request on GitHub | Integer |
-| "gh_src_churn" | How much (lines) production code changed in the commits built by this build | Integer |
-| "gh_test_churn" | How much (lines) test code changed in the commits built by this build | Integer |
-| "gh_files_added" | Number of files added by the commits built by this build | Integer |
-| "gh_files_deleted" | Number of files deleted by the commits built by this build | Integer |
-| "gh_files_modified" | Number of files modified by the commits built by this build | Integer |
-| "gh_tests_added" | Lines of testing code added by the commits built by this build | Integer  |
-| "gh_tests_deleted" | Lines of testing code deleted by the commits built by this build  | Integer  |
-| "gh_src_files" | Number of src files changed by the commits that where built | Integer |
-| "gh_doc_files" | Number of documentation files changed by the commits that where built | Integer |
-| "gh_other_files" | Number of files which are neither production code nor documentation that changed by the commits that where built | Integer |
-| "gh_commits_on_files_touched" | Unique commits on the files included in the build from the moment the build was triggered and 3 months back  | Integer |
-| "gh_sloc" | Number of executable production source lines of code, in the entire repository | Integer |
-| "gh_test_lines_per_kloc" | Test density. Number of lines in test cases per 1000 gh_sloc | Double |
-| "gh_test_cases_per_kloc" | Test density. Number of test cases per 1000 gh_sloc | Double |
-| "gh_asserts_cases_per_kloc" | Assert density. Number of assertions per 1000 gh_sloc | Double |
-| "gh_by_core_team_member" | Whether this commit was authored by a core team member | Boolean |
-| "gh_description_complexity" | If gh_is_pr, the total number of words in the pull request title and description | Integer  |
-| "tr_build_id" | Unique build ID on Travis | String |
-| "gh_pull_req_num" | Pull request number on GitHub | Integer |
-| "tr_status" | Build status (pass, fail, errored, cancelled) | String |
-| "tr_duration" | Overall duration of the build | Integer (in seconds) |
-| "tr_started_at" | Start of the build process | ISO Date |
-| "tr_jobs" | Which Travis jobs executed this build (number of integration environments) | List of Strings |
-| "tr_build_number" | Build number on Travis (unique per project) | Integer |
-| "tr_job_id" | This build job's id, one of tr_jobs | String |
-| "tr_lan" | Language of the build, as recognized by BuildLogAnalyzer | String |
-| "tr_setup_time" | Setup time for the Travis build to start | Integer (in seconds) |
-| "tr_analyzer" | Build log analyzer that took over (ruby, java-ant, java-maven, java-gradle) | String |
-| "tr_frameworks" | Test frameworks that tr_analyzer recognize and invoke (junit, rspec, cucumber, ...) | String. List of Strings, separated by `#` |
-| "tr_tests_ok" | If available (depends on tr_frameworks and tr_analyzer): Number of tests passed | Integer |
-| "tr_tests_fail" | If available (depends on tr_frameworks and tr_analyzer): Number of tests failed | Integer |
-| "tr_tests_run" | If available (depends on tr_frameworks and tr_analyzer): Number of tests were run as part of this build | Integer |
-| "tr_tests_skipped" | If available (depends on tr_frameworks and tr_analyzer): Number of tests were skipped or ignored in the build |  Integer |
-| "tr_failed_tests" | All tests that failed in this build | A list of strings, separated by `#` |
-| "tr_testduration" | Time it took to run the tests | Double (in seconds)  |
-| "tr_purebuildduration" | Time it took to run the build (without Travis scheduling and provisioning the build) | Double (in seconds)  |
-| "tr_tests_ran" | Whether tests ran in this build | Boolean  |
-| "tr_tests_failed" | Whether tests failed in this build | Boolean  |
-| "git_num_committers" | Number of people who committed to this project | Integer |
-| "tr_num_jobs" | How many jobs does this build have (lenght of tr_jobs) | Integer |
-| "tr_prev_build" | Serialized link to the previous build, by giving its tr_build_id | String |
-| "tr_ci_latency" | Latency induced by Travis (scheduling, build pick-up, ...) | Integer (in seconds) |
-
+|Column |Description | 
+| ----  | ---------- |
+| `tr_build_id` | The analyzed build id, as reported from Travis CI. |
+| `tr_job_id` | The job id of the build job under analysis. |
+| `tr_build_number` | The serial build number of the build under analysis for this project. |
+| `gh_project_name` | Project name on GitHub. |
+| `gh_is_pr` | Whether this build was triggered as part of a pull request on GitHub. |
+| `gh_pr_created_at` | If the build is a pull request, the creation timestamp for this pull request. |
+| `gh_pull_req_num` | If the build is a pull request, its ID on GitHub. |
+| `gh_lang` | Dominant repository language, according to GitHub. |
+| `git_merged_with` | If this commit sits on a pull request (`gh_is_pr` true), how it was closed (merge button, manual merge, ...). |
+| `git_branch` | The branch that was built |
+| `gh_num_commits_in_push` | Number of commits included in the push that triggered the build. In rare cases, GHTorrent has not recorded a push event for the commit that created the build in which case `num_commits_in_push` is nil. |
+| `gh_commits_in_push` | The commits included in the push that triggered the build. In rare cases, GHTorrent has not recorded a push event for the commit that created the build in which case `gh_commits_in_push` is nil. |
+| `git_prev_commit_resolution_status` | When walking backwards the branch to find previously built commits, what is the reason for stopping the traversal? Can be one of: `no_previous_build`: when , `build_found`: when we find a previous build, or `merge_found`: when we had to stop traversal at a merge point (we cannot decide which of the parents to follow). |
+| `git_prev_built_commit` | The commit that triggered the previous build on a linearized history. If `git_prev_commit_resolution_status` is `merge_found`, then this is nil. |
+| `tr_prev_build` | The build triggered by `git_prev_built_commit`. If `git_prev_commit_resolution_status` is `merge_found`, then this is nil. |
+| `gh_first_commit_created_at` | Timestamp of first commit in the push that triggered the build. In rare cases, GHTorrent has not recorded a push event for the commit that created the build in which case `first_commit_created_at` is nil. |
+| `gh_team_size` | Number of developers that committed directly or merged PRs from the moment the build was triggered and 3 months back. |
+| `git_all_built_commits` | A list of all commits that were built for this build, up to but excluding the commit of the previous build, or up to and including a merge commit (in which case we cannot go further backward). The internal calculation starts with the parent for PR builds or the actual built commit for non-PR builds, traverse the parent commits up until a commit that is linked to a previous build is found (excluded, this is under `tr_prev_built_commit`) or until we cannot go any further because a branch point was reached. This is indicated in `git_prev_commit_resolution_status`. This list is what the `git_diff_*` fields are calculated upon. |
+| `git_num_all_built_commits` | Number of `git_all_built_commits`. |
+| `git_trigger_commit` | The commit that triggered the build. |
+| `tr_virtual_merged_into` | The commit of the branch that the commit built by Travis is merged into when testing pull requests. |
+| `tr_original_commit` | The SHA of the original commit that was build as linked to from Travis. Might be a virtual commit that is not part of the original repository. |
+| `gh_num_issue_comments` | If git_commit is linked to a PR on GitHub, the number of discussion comments on that PR. |
+| `gh_num_commit_comments` | The number of comments on `git_all_built_commits` on GitHub. |
+| `gh_num_pr_comments` | If gh_is_pr is true, the number of comments (code review) on this pull request on GitHub. |
+| `git_diff_src_churn` | Number of lines of production code changed in all `git_all_built_commits`. |
+| `git_diff_test_churn` | Number of lines of test code changed in all `git_all_built_commits`. |
+| `gh_diff_files_added` | Number of files added by all `git_all_built_commits`. |
+| `gh_diff_files_deleted` | Number of files deleted by all `git_all_built_commits`. |
+| `gh_diff_files_modified` | Number of files modified by all `git_all_built_commits`. |
+| `gh_diff_tests_added` | Lines of testing code added by all `git_all_built_commits`. |
+| `gh_diff_tests_deleted` | Lines of testing code deleted by all `git_all_built_commits`. |
+| `gh_diff_src_files` | Number of src files changed by all `git_all_built_commits`. |
+| `gh_diff_doc_files` | Number of documentation files changed by all `git_all_built_commits`. |
+| `gh_diff_other_files` | Number of files which are neither source code nor documentation that changed by the commits that where built. |
+| `gh_num_commits_on_files_touched` | Number of unique commits on the files touched in the commits (`git_all_built_commits`) that triggered the build from the moment the build was triggered and 3 months back. It is a metric of how active the part of the project is that these commits touched. |
+| `gh_sloc` | Number of executable production source lines of code, in the entire repository. |
+| `gh_test_lines_per_kloc` | Test density. Number of lines in test cases per 1000 `gh_sloc`. |
+| `gh_test_cases_per_kloc` | Test density. Test density. Number of test cases per 1000 `gh_sloc`. |
+| `gh_asserts_cases_per_kloc` | Test density. Assert density. Number of assertions per 1000 `gh_sloc`. |
+| `gh_by_core_team_member` | Whether this commit was authored by a core team member. A core team member is someone who has committed code at least once within the 3 months before this commit, either by directly committing it or by merging commits. |
+| `gh_description_complexity` | If the build is a pull request, the total number of words in the pull request title and description. |
+| `gh_pushed_at` | Timestamp of the push that triggered the build (GitHub provided). |
+| `gh_build_started_at` | Timestamp of the push that triggered the build (Travis provided). |
+| `tr_status` | The build status (such as passed, failed, ...) as returned from the Travis CI API. |
+| `tr_duration` | The full build duration as returned from the Travis CI API. |
+| `tr_jobs` | The unique Travis IDs of the jobs, in a string separated by `#`. |
+| `tr_log_lan` | The primary programming language, extracted by build log analysis. |
+| `tr_log_status` | The overall return status of the build, extracted by build log analysis. |
+| `tr_log_setup_time` | The setup time before the script phase (the actual build) starts, in seconds, extracted by build log analysis. |
+| `tr_log_analyzer` | The build log analyzer that was invoked for analysis of this build. |
+| `tr_log_frameworks` | The testing frameworks ran extracted by build log analysis. |
+| `tr_log_bool_tests_ran` | Whether tests were run, extracted by build log analysis. |
+| `tr_log_bool_tests_failed` | Whether tests failed, extracted by build log analysis. |
+| `tr_log_num_tests_ok` | Number of tests that succeeded, extracted by build log analysis. |
+| `tr_log_num_tests_failed` | Number of tests that failed, extracted by build log analysis. |
+| `tr_log_num_tests_run` | Number of tests that ran in total, extracted by build log analysis. |
+| `tr_log_num_tests_skipped` | Number of tests that were skipped, extracted by build log analysis. |
+| `tr_log_tests_failed` | Names of the tests that failed, extracted by build log analysis. |
+| `tr_log_testduration` | Duration of the running the tests, in seconds, extracted by build log analysis. |
+| `tr_log_buildduration` | Duration of running the build command like maven or ant (if present, should be longer than `:tr_log_testduration` as it includes this phase), in seconds, extracted by build log analysis. |
