@@ -30,8 +30,8 @@ Tip: If you use R and CSV, loading the CSV via `fread` from `data.table` offers 
 |Snapshot Revision|Date|Size|
 |[travistorrent_11_1_2017.sql.gz](/dumps/travistorrent_11_1_2017.sql.gz)|11.1.2017|193M|
 |[travistorrent_11_1_2017.csv.gz](/dumps/travistorrent_11_1_2017.csv.gz)|11.1.2017|190M|
-|[travistorrent_6_12_2016.sql.gz](/dumps/travistorrent_6_12_2016.sql.gz)|6.12.2016|178M|
-|[travistorrent_6_12_2016.csv.gz](/dumps/travistorrent_6_12_2016.csv.gz)|6.12.2016|175M|
+|archived: [travistorrent_6_12_2016.sql.gz](/dumps/travistorrent_6_12_2016.sql.gz)|6.12.2016|178M|
+|archived: [travistorrent_6_12_2016.csv.gz](/dumps/travistorrent_6_12_2016.csv.gz)|6.12.2016|175M|
 |archived: [travistorrent_27_10_2016.sql.gz](/dumps/travistorrent_27_10_2016.sql.gz)|27.10.2016|78M|
 |archived: [travistorrent_27_10_2016.csv.gz](/dumps/travistorrent_27_10_2016.csv.gz)|27.10.2016|78M|
 |archived: [travistorrent_30_9_2016.sql.gz](/dumps/travistorrent_30_9_2016.sql.gz)|30.9.2016|78M|
