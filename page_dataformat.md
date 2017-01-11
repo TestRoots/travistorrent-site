@@ -29,7 +29,7 @@ we also support test case filtering for RUnit, Shoulda and RSpec tests. More det
 | `tr_build_number` | The serial build number of the build under analysis for this project. |
 | `gh_project_name` | Project name on GitHub. |
 | `gh_is_pr` | Whether this build was triggered as part of a pull request on GitHub. |
-| `gh_pr_created_at` | If the build is a pull request, the creation timestamp for this pull request, in UTC. |
+| `gh_pr_created_at` | If the build is a pull request, the creation timestamp for this pull request. |
 | `gh_pull_req_num` | If the build is a pull request, its ID on GitHub. |
 | `gh_lang` | Dominant repository language, according to GitHub. |
 | `git_merged_with` | If this commit sits on a pull request (`gh_is_pr` true), how it was closed (merge button, manual merge, ...). |
@@ -39,7 +39,7 @@ we also support test case filtering for RUnit, Shoulda and RSpec tests. More det
 | `git_prev_commit_resolution_status` | When walking backwards the branch to find previously built commits, what is the reason for stopping the traversal? Can be one of: `no_previous_build`: when , `build_found`: when we find a previous build, or `merge_found`: when we had to stop traversal at a merge point (we cannot decide which of the parents to follow). |
 | `git_prev_built_commit` | The commit that triggered the previous build on a linearized history. If `git_prev_commit_resolution_status` is `merge_found`, then this is nil. |
 | `tr_prev_build` | The build triggered by `git_prev_built_commit`. If `git_prev_commit_resolution_status` is `merge_found`, then this is nil. |
-| `gh_first_commit_created_at` | Timestamp of first commit in the push that triggered the build, in UTC. In rare cases, GHTorrent has not recorded a push event for the commit that created the build in which case `first_commit_created_at` is nil. |
+| `gh_first_commit_created_at` | Timestamp of first commit in the push that triggered the build. In rare cases, GHTorrent has not recorded a push event for the commit that created the build in which case `first_commit_created_at` is nil. |
 | `gh_team_size` | Number of developers that committed directly or merged PRs from the moment the build was triggered and 3 months back. |
 | `git_all_built_commits` | A list of all commits that were built for this build, up to but excluding the commit of the previous build, or up to and including a merge commit (in which case we cannot go further backward). The internal calculation starts with the parent for PR builds or the actual built commit for non-PR builds, traverse the parent commits up until a commit that is linked to a previous build is found (excluded, this is under `tr_prev_built_commit`) or until we cannot go any further because a branch point was reached. This is indicated in `git_prev_commit_resolution_status`. This list is what the `git_diff_*` fields are calculated upon. |
 | `git_num_all_built_commits` | Number of `git_all_built_commits`. |
@@ -66,8 +66,8 @@ we also support test case filtering for RUnit, Shoulda and RSpec tests. More det
 | `gh_asserts_cases_per_kloc` | Test density. Assert density. Number of assertions per 1000 `gh_sloc`. |
 | `gh_by_core_team_member` | Whether this commit was authored by a core team member. A core team member is someone who has committed code at least once within the 3 months before this commit, either by directly committing it or by merging commits. |
 | `gh_description_complexity` | If the build is a pull request, the total number of words in the pull request title and description. |
-| `gh_pushed_at` | Timestamp of the push that triggered the build (GitHub provided), in UTC. |
-| `gh_build_started_at` | Timestamp of the push that triggered the build (Travis provided), in UTC. |
+| `gh_pushed_at` | Timestamp of the push that triggered the build (GitHub provided). |
+| `gh_build_started_at` | Timestamp of the push that triggered the build (Travis provided). |
 | `tr_status` | The build status (such as passed, failed, ...) as returned from the Travis CI API. |
 | `tr_duration` | The full build duration as returned from the Travis CI API. |
 | `tr_jobs` | The unique Travis IDs of the jobs, in a string separated by `#`. |
