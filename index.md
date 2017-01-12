@@ -6,10 +6,6 @@ subtitle: Free and Open Travis Analytics for Everyone
 
 TravisTorrent, a [GHTorrent](http://ghtorrent.org/) partner project, provides free and easy-to-use [Travis CI](http://www.travis-ci.com) build analyses to the masses through its open database.
 
-<div class="alert alert-warning" role="alert">We strongly recommend using or updating to the latest
-<a href="/page_access/">TravisTorrent dump from 6.12.2016,</a> as it contains significant improvements over the previous
-versions and is much easier to work with.</div>
-
 <div class="alert alert-success" role="alert">TravisTorrent is the <a href="http://2017.msrconf.org/#/challenge">MSR'2017 Mining Challenge</a>. By extracting cool facts from the data set, you can win awesome prizes, courtesy of Travis CI (deadline 20 Feb. 2017)!</div>
 
 <div class="main-explain-area jumbotron">
