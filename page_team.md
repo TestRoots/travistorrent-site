@@ -15,4 +15,4 @@ TravisTorrent is created and maintained by:
 <div style="clear:left"><br></div>
 
 #### Acknowledgment
-We would like to thank Ward Muylaert and Nikiforos Botis for discussions that lead to improvements in the dataset.
+We would like to thank Sebastian Baltes, Ward Muylaert and Nikiforos Botis for discussions that lead to improvements in the dataset.

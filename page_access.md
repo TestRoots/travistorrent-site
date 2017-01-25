@@ -8,19 +8,15 @@ comments: true
 As a courtesy to our users, TravisTorrent provides both offline and online
 access options. No registration or subscription is required. Users are kindly asked to follow a fair-use policy of server resources.
 
-<div class="get-started-wrap"><a class="btn btn-success btn-lg get-started-btn" href="/dblite/">Live Online Access</a> <a class="btn btn-success btn-lg get-started-btn" href="/dumps/travistorrent_11_1_2017.sql.gz">Download SQL Dump</a></div>
+<div class="get-started-wrap"><a class="btn btn-success btn-lg get-started-btn" href="https://bigquery.cloud.google.com/table/travistorrent-bq:data.2017_01_11?tab=schema">Live Online Access</a> <a class="btn btn-success btn-lg get-started-btn" href="/dumps/travistorrent_11_1_2017.sql.gz">Download SQL Dump</a></div>
 <br>
 
 ### Live Online Access
-We provide a MySQL web client interface [DBLite instance](/dblite/) that
-has the latest TravisTorrent snapshot loaded into it.
+Thanks to Google, we can [provide a BigQuery interface](https://bigquery.cloud.google.com/table/travistorrent-bq:data.2017_01_11?tab=schema) to TravisTorrent. Everyone gets a free monthly Terabyte on BigQuery to instantly query it!
 
-Usage Instructions: After following the above link, please click on `Continue
-as Guest` to access the web interface.  Select database `travist`, under which
-you will find the TravisTorrent timestamped tables. Select one of them. You can
-then input sample queries and run them via the blue arrow.  For example,
-``SELECT AVG(tr_duration) FROM travistorrent_6_12_2016`` computes the
-average mean of the build time over all projects.
+Usage Instructions: After following the above link, please login and authorize via your Google account (there is a free $300 voucher to get started and you require a credit card, but according to Google this is never charged unless explicitly asked for). If you are not already in the query browser, click on the big red button on the top left that says `Compose Query`. You can
+then input sample queries in SQL syntax and run them via `CTRL+ENTER.  For example,
+``SELECT AVG(tr_duration) FROM [travistorrent-bq:data.2017_01_11]`` computes the average mean build time over all projects. 
 
 ### Offline Access
 We distribute snapshots of our database as compressed SQL and CSV files. The SQL is generated from automatically reading in the CSV.
