@@ -12,11 +12,9 @@ access options. No registration or subscription is required. Users are kindly as
 <br>
 
 ### Live Online Access
-Thanks to Google, we can [provide a BigQuery interface](https://bigquery.cloud.google.com/table/travistorrent-bq:data.2017_01_11?tab=schema) to TravisTorrent. Everyone gets a free monthly Terabyte on BigQuery to instantly query it!
+Thanks to Google, we can [provide a BigQuery interface](https://bigquery.cloud.google.com/table/travistorrent-bq:data.2017_01_11?tab=schema) to TravisTorrent. Everyone with a Google account gets a free monthly quota of one Terabyte on BigQuery to instantly start querying TravisTorrent!
 
-Usage Instructions: After following the above link, please login and authorize via your Google account (there is a free $300 voucher to get started and you require a credit card, but according to Google this is never charged unless explicitly asked for). If you are not already in the query browser, click on the big red button on the top left that says `Compose Query`. You can
-then input sample queries in SQL syntax and run them via `CTRL+ENTER.  For example,
-``SELECT AVG(tr_duration) FROM [travistorrent-bq:data.2017_01_11]`` computes the average mean build time over all projects. 
+Usage Instructions: After following the above link, please login and authorize via your Google account (a [credit card should not](https://cloud.google.com/blog/big-data/2017/01/how-to-run-a-terabyte-of-google-bigquery-queries-each-month-without-a-credit-card) be necessary). If you are not already in the query browser, click on the big red button on the top left that says `Compose Query`. You can then input sample queries in SQL syntax and run them via `CTRL+ENTER`.  For example, ``SELECT AVG(tr_duration) FROM [travistorrent-bq:data.2017_01_11]`` computes the average mean build time over all projects. 
 
 ### Offline Access
 We distribute snapshots of our database as compressed SQL and CSV files. The SQL is generated from automatically reading in the CSV.
