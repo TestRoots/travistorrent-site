@@ -35,7 +35,7 @@ we also support test case filtering for RUnit, Shoulda and RSpec tests. More det
 | `git_merged_with` | If this commit sits on a pull request (`gh_is_pr` true), how it was closed (merge button, manual merge, ...). |
 | `git_branch` | The branch that was built |
 | `gh_num_commits_in_push` | Number of commits included in the push that triggered the build. In rare cases, GHTorrent has not recorded a push event for the commit that created the build in which case `num_commits_in_push` is nil. |
-| `gh_commits_in_push` | The commits included in the push that triggered the build. In rare cases, GHTorrent has not recorded a push event for the commit that created the build in which case `gh_commits_in_push` is nil. |
+| `gh_commits_in_push` | The commits included in the push that triggered the build. In rare cases, GHTorrent has not recorded a push event for the commit that created the build in which case `gh_commits_in_push` is "" (empty string). |
 | `git_prev_commit_resolution_status` | When walking backwards the branch to find previously built commits, what is the reason for stopping the traversal? Can be one of: `no_previous_build`: when , `build_found`: when we find a previous build, or `merge_found`: when we had to stop traversal at a merge point (we cannot decide which of the parents to follow). |
 | `git_prev_built_commit` | The commit that triggered the previous build on a linearized history. If `git_prev_commit_resolution_status` is `merge_found`, then this is nil. |
 | `tr_prev_build` | The build triggered by `git_prev_built_commit`. If `git_prev_commit_resolution_status` is `merge_found`, then this is nil. |
