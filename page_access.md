@@ -8,7 +8,7 @@ comments: true
 As a courtesy to our users, TravisTorrent provides both offline and online
 access options. No registration or subscription is required. Users are kindly asked to follow a fair-use policy of server resources.
 
-<div class="get-started-wrap"><a class="btn btn-success btn-lg get-started-btn" href="https://bigquery.cloud.google.com/table/travistorrent-bq:data.2017_01_11?tab=schema">Live Online Access</a> <a class="btn btn-success btn-lg get-started-btn" href="/dumps/travistorrent_11_1_2017.sql.gz">Download SQL Dump</a></div>
+<div class="get-started-wrap"><a class="btn btn-success btn-lg get-started-btn" href="https://bigquery.cloud.google.com/table/travistorrent-bq:data.2017_02_08?tab=schema">Live Online Access</a> <a class="btn btn-success btn-lg get-started-btn" href="/dumps/travistorrent_8_2_2017.sql.gz">Download SQL Dump</a></div>
 <br>
 
 ### Live Online Access
@@ -22,8 +22,10 @@ We distribute snapshots of our database as compressed SQL and CSV files. The SQL
 Tip: If you use R and CSV, loading the CSV via `fread` from `data.table` offers a significant speed-up over `read.csv`.
 
 |Snapshot Revision|Date|Size|
-|[travistorrent_11_1_2017.sql.gz](/dumps/travistorrent_11_1_2017.sql.gz)|11.1.2017|193M|
-|[travistorrent_11_1_2017.csv.gz](/dumps/travistorrent_11_1_2017.csv.gz)|11.1.2017|190M|
+|[travistorrent_8_2_2017.csv.gz](/dumps/travistorrent_8_2_2017.csv.gz)|11.1.2017|184M|
+|[travistorrent_8_2_2017.sql.gz](/dumps/travistorrent_8_2_2017.sql.gz)|11.1.2017|181M|
+|archived: [travistorrent_11_1_2017.csv.gz](/dumps/travistorrent_11_1_2017.csv.gz)|11.1.2017|190M|
+|archived: [travistorrent_11_1_2017.sql.gz](/dumps/travistorrent_11_1_2017.sql.gz)|11.1.2017|193M|
 |archived: [travistorrent_6_12_2016.sql.gz](/dumps/travistorrent_6_12_2016.sql.gz)|6.12.2016|178M|
 |archived: [travistorrent_6_12_2016.csv.gz](/dumps/travistorrent_6_12_2016.csv.gz)|6.12.2016|175M|
 |archived: [travistorrent_27_10_2016.sql.gz](/dumps/travistorrent_27_10_2016.sql.gz)|27.10.2016|78M|
