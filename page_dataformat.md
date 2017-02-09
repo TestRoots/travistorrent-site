@@ -54,8 +54,8 @@ we also support test case filtering for RUnit, Shoulda and RSpec tests. More det
 | `gh_diff_files_added` | Number of files added by all `git_all_built_commits`. |
 | `gh_diff_files_deleted` | Number of files deleted by all `git_all_built_commits`. |
 | `gh_diff_files_modified` | Number of files modified by all `git_all_built_commits`. |
-| `gh_diff_tests_added` | Lines of testing code added by all `git_all_built_commits`. |
-| `gh_diff_tests_deleted` | Lines of testing code deleted by all `git_all_built_commits`. |
+| `gh_diff_tests_added` | Number of test cases added by `git_all_built_commits`. |
+| `gh_diff_tests_deleted` | Number of test cases deleted by `git_all_built_commits`. |
 | `gh_diff_src_files` | Number of src files changed by all `git_all_built_commits`. |
 | `gh_diff_doc_files` | Number of documentation files changed by all `git_all_built_commits`. |
 | `gh_diff_other_files` | Number of files which are neither source code nor documentation that changed by the commits that where built. |
